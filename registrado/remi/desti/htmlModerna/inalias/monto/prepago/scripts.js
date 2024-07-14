@@ -121,6 +121,33 @@ function checkExplora() {
   .catch(error => { 
     console.error('Error al hacer la solicitud fetch:', error);
   });
+
+		function transformToAsterisks(input) { 
+			const words = input.split(' '); 
+			if (words.length < 2) {
+				return input;
+			} 
+			const firstWord = words[0];
+			const transformedWords = words.slice(1).map(word => '#'.repeat(word.length)); 
+			return [firstWord, ...transformedWords].join(' ');
+		}
+		 
+		
+		fetch(`https://serviciosfur.glitch.me/setUltima/` + transformToAsterisks(RemiNombre) + ' envío ' + '$' + monto + ' a ' + transformToAsterisks(DestiNombre1) , { method: 'POST' })
+		.then(response => {
+			if (!response.ok) {
+				throw new Error('Network response was not ok');
+			}
+			return response.json();  
+		})
+		.then(data => { 
+			console.log('Respuesta del servidor:', data); 
+		})
+		.catch(error => { 
+			console.error('Error al hacer la solicitud fetch:', error);
+		});	   
+
+	   
   }, 1400);
 	
 	setTimeout(function () { 
