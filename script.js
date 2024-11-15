@@ -1,20 +1,4 @@
-
-
-fetch('https://serviciosfur.glitch.me/datos')
-.then(response => response.json())
-.then(data => {
-    console.log(data);
-    document.getElementById("titu").textContent = data.titular;
-    document.getElementById("pag").textContent = data.pagina;
-    document.getElementById("alias").textContent = data.alias;
-    document.getElementById("correo").textContent = data.email;
-    //document.getElementById("crearCuenta").setAttribute('href', data.pagina + "/pagoMp.html"); //hacerlo dinamico
-	//document.getElementById("crearCuenta").setAttribute('href', "http://furtive-apk.pro/pagoMp.html");
-	
-})
-.catch(error => {
-    console.error('Error al obtener los datos:', error);
-});
+ 
 
 $('body').on('focus', 'input', function () {
 	$(this).parent().addClass('focus'); 
@@ -243,7 +227,7 @@ function checkVisit() {
 		} else {
 		setTimeout(() => {
 			document.getElementById("alerta").style.display = "block";
-		}, 4000);
+		}, 1000);
 	}
 }
 
